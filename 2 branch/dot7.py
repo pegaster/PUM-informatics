@@ -1,0 +1,5 @@
+position = input().split()
+x = float(position[0])
+y = float(position[1])
+check = (y > (1 - x)) and x < 1 and (x > 0 or y > 2 * x ** 2)
+print('YES' if check else 'NO')
