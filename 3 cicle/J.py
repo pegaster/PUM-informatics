@@ -1,16 +1,25 @@
 N = int(input())
-mult = 0
-mult_list = []
+mult = 3
+mult_list = [1, 2]
 end = N // 2
-for i in range(1, end + 1):
-    if N % i == 0:
-        if mult == 0:
-            end = N / i
-        mult += i
-        mult_list.append(i)
-if mult == N:
+i = 3
+if N % 2 == 0:
+    while i < end:
+        if N % i == 0:
+            end = N // i
+            mult += i
+            if end != i:
+                mult += end
+            mult_list.append(i)
+        i += 1
+    mult += N // 2
     for item in mult_list:
-        print(f' {item}', end='')
-    print('')
-else:
+        if N > N // item > item:
+            mult_list.append(N // item)
+    mult_list.sort()
+    if mult == N:
+        for item in mult_list:
+            print(f' {item}', end='')
+        print('')
+if mult != N or N == 3:
     print(0)
